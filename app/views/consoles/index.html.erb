@@ -1,10 +1,14 @@
-<h1>All available consoles</h1>
+<div class="container mt-3">
+  <h1>All available consoles</h1>
 
-<% @consoles.each do |console| %>
-  <%= link_to console_path(console) do %>
-    <%= console.name %>
-    <%= console.model %>
-    <% console.photos.first %>
-    <%= "#{console.price_per_day}€" %>
+<!-- All consoles, loop with each -->
+  <% @consoles.each do |console| %>
+  <!-- Each console's variable -->
+    <%= link_to console_path(console) do %>
+      <%= console.name %>
+      <%= console.model %>
+      <% console.photos.first %>
+      <%= "#{console.price_per_day}€" %>
+    <% end %>
   <% end %>
-<% end %>
+</div>
