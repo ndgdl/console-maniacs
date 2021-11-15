@@ -1,0 +1,10 @@
+<h1>Consoles#index</h1>
+
+<% @consoles.each do |console| %>
+  <%= link_to console_path(console) do %>
+    <%= console.name %>
+    <%= console.model %>
+    <% console.photos.first %>
+    <%= "#{console.price_per_day}€" %>
+  <% end %>
+<% end %>
