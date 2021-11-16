@@ -1,0 +1,27 @@
+.title {
+  display: flex;
+  align-content: center;
+}
+.pictures {
+  display: flex;
+  width: 100%;
+}
+.pictures img {
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  }
+
+.side-pictures {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.small-picture {
+  height: 195px;
+}
+
+.big-picture {
+  height: 400px;
+  margin-right: 5px;
+}
