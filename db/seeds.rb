@@ -2,7 +2,11 @@ require 'open-uri'
 
 puts 'Cleaning DB...'
 
-Console.destroy_all
+Console.all.each do |console|
+  console.photos.purge
+  console.destroy
+end
+
 User.all.each do |user|
   user.photo.purge if user.photo.attached?
   user.destroy
@@ -24,7 +28,6 @@ alexandre = User.new(
 file = URI.open('https://avatars.githubusercontent.com/u/87811770?v=4')
 alexandre.photo.attach(io: file, filename: 'alexandre.jpg', content_type: 'image/png')
 alexandre.save
-puts 'Seeding done:'
 
 puts 'Creating Alex...'
 alex = User.new(
@@ -70,43 +73,43 @@ puts 'Seeding done:'
 puts "#{User.count} users created"
 
 
-# puts 'Seeding...'
+puts 'Seeding consoles...'
 
-# new_console = Console.new(
-#   name: ,
-#   model: ,
-#   content: ,
-#   price_per_day: ,
-# )
+consoles = ["Game Boy",
+ "Tamagotchi",
+ "Nintendo Switch",
+ "PlayStation 3",
+ "PlayStation 4",
+ "PlayStation 5",
+ "Wii",
+ "Xbox",
+ "Xbox 360",
+ "Xbox One",
+ "Xbox Series X"]
 
-# nico = User.find(1)
-# jerem = User.find(2)
+count = 1
+rand(5..10).times do
+  puts "Creating #{count} console"
+  new_console_name = consoles.sample
+  new_console = Console.new(
+    name: new_console_name,
+    model: new_console_name.split[0],
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    price_per_day: rand(25.0..75.0).round(2)
+  )
 
-# users = [nico, jerem]
+  new_console.user = User.all.sample
 
-# new_console.user = users.sample
+  i = 1
+  3.times do
+    file = URI.open("https://loremflickr.com/1000/1000/gaming,console,#{new_console_name.gsub(' ', '').downcase}/all")
+    new_console.photos.attach(io: file, filename: "#{new_console_name.gsub(' ', '')}-#{i}.jpg", content_type: 'image/jpg')
+    i += 1
+  end
 
-# new_console.save!
+  new_console.save
+  puts "Console number##{count} created"
+end
 
-# consoles = ["Game Boy",
-#  "Tamagotchi",
-#  "Nintendo Switch",
-#  "PlayStation 3",
-#  "PlayStation 4",
-#  "PlayStation 5",
-#  "Wii",
-#  "Xbox",
-#  "Xbox 360",
-#  "Xbox One",
-#  "Xbox Series X"]
-
-# i = 1
-
-# selected_console = consoles.sample.gsub(' ', '')
-# rand(3..5).times do
-#   file = URI.open(Faker::LoremFlickr.image(size: "1000x1000", search_terms: ['gaming', 'console', "#{selected_console}"], match_all: true))
-#   new_console.photo.attach(io: file, file_name: "#{selected_console}-#{i}.jpeg", content_type: 'image/jpeg')
-#   i += 1
-# end
-# puts 'Seeding done:'
-# puts "#{Console.count} created"
+puts 'Seeding done:'
+puts "#{Console.count} consoles created"
