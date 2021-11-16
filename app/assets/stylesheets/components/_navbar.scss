@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%, rgba(0,0,0,1) 100%);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +9,37 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 80px;
+}
+
+.recherche_p{
+	background-color: #443f3f;
+	border: 1px solid #dddddd;
+}
+.recherche-barr{
+	margin-bottom: auto;
+	margin-top: auto;
+	background-color: white;
+}
+.recherche-input{
+	border: 0;
+	width: 0;
+	line-height: 40px;
+}
+.recherche-input{
+	padding: 0 10px;
+	width: 400px;
+}
+.recherche-icone:hover{
+	color: grey;
+}
+.recherche-icone{
+	height: 40px;
+	width: 40px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color: grey;
 }
