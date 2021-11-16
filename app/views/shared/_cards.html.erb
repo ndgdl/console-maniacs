@@ -1,20 +1,18 @@
-
-<% consoles.each do |console| %>
-  <!-- Each console's variable -->
-    <div class="cards">
-      <%= link_to console_path(console) do %>
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1605901309584-818e25960a8f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2038&q=80" alt="">
-          <% console.photos.first %>
-          <h4><%= console.name %></h4>
-          <h5><%= console.model %></h5>
-          <p><%= console.content %></p>
-          <div class="information">
-            <%# REPLACE rating by console.reviews.count %>
-            <div class="rating"><i class="fas fa-gamepad"> <%= 4 %></i> reviews</div>
-            <div class="price"><h6><%= console.price_per_day %>€ / day</h6></div>
-          </div>
+<!-- Each console's variable -->
+<div class="cards">
+  <% consoles.each do |console| %>
+    <%= link_to console_path(console) do %>
+      <div class="card">
+        <%= cl_image_tag console.photos.first.key %>
+        <h4><%= console.name %></h4>
+        <h5><%= console.model %></h5>
+        <p><%= console.content %></p>
+        <div class="information">
+          <%# REPLACE rating by console.reviews.count %>
+          <div class="rating"><i class="fas fa-gamepad"> <%= 4 %></i> reviews</div>
+          <div class="price"><h6><%= console.price_per_day %>€ / day</h6></div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
+</div>

@@ -2,6 +2,10 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "cards";
 @import "footer";
-@import "cards_homepage"
+@import "cards_homepage";
 
+* {
+  margin: 0;
+}

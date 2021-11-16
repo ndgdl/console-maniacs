@@ -1,8 +1,9 @@
-.cards {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 10px;
-
+a {
+  display: flex;
+  justify-content: center;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .card {
@@ -11,9 +12,9 @@
   text-align: center;
   border-radius: 4px;
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  max-width: 300px;
   img {
     padding: 5px;
-    height: 200px;
     border-radius: 4px;
   }
   h4 {
@@ -26,6 +27,7 @@
     text-align: center;
     color: lightgrey;
     max-height: 50px;
+    overflow: hidden;
   }
   .information {
     display: flex;
