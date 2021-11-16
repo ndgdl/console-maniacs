@@ -1,0 +1,36 @@
+.cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 10px;
+
+}
+
+.card {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  img {
+    padding: 5px;
+    height: 200px;
+    border-radius: 4px;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  h5 {
+    opacity: 0.5;
+  }
+  p {
+    text-align: center;
+    color: lightgrey;
+    max-height: 50px;
+  }
+  .information {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
