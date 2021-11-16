@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <%= simple_form_for(@console) do |f| %>
+    <%= f.input :name, label: "What console would you like to lease?", placeholder: "PS4, Xbox One, Tamagotchi..." %>
+    <%= f.input :model, label: "Which model is it?", placeholder: "Playstation, Xbox, Gameboy..." %>
+    <%= f.input :content, label: "Describe your equipment", placeholder: "Number of controllers, games available, etc." %>
+    <%= f.input :price_per_day, label: "How much per day?", placeholder: "9.99€" %>
+    <!-- REMAINDER: PREVENT FROM NEGATIVE NUMBERS AND ALLOW FLOAT-->
+
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Create an offer", class: "btn btn-outline-primary" %>
+  <% end %>
+</div>
