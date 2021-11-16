@@ -5,9 +5,9 @@
     <h1><%= @console.name %></h1>
   </div>
   <div class="pictures">
-    <img class="picture-1" src="https://images.unsplash.com/photo-1555864326-5cf22ef123cf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1734&q=80" alt="">
-    <img class="picture-2" src="https://images.unsplash.com/photo-1531594896955-305cf81269f1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80" alt="">
-    <img class="picture-3" src="https://images.unsplash.com/photo-1533702165324-66678e2069b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjF8fGNvbnNvbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=900&q=60" alt="">
+    <%= cl_image_tag @console.photos[0].key, class:"picture-1" %>
+    <%= cl_image_tag @console.photos[1].key, class:"picture-2" %>
+    <%= cl_image_tag @console.photos[2].key, class:"picture-3" %>
   </div>
   <div class="main">
     <div class="content">
