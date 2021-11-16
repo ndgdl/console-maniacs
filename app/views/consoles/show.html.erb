@@ -1,0 +1,14 @@
+<div class="container mt-3">
+
+<!-- Console variables with photos -->
+  <h1><%= @console.name %></h1>
+  <h2><%= @console.model %></h2>
+  <% @console.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
+  <p><%= @console.content %></p>
+
+<!-- Buttons -->
+  <%= link_to 'Back to the list', consoles_path, class: 'btn btn-outline-secondary' %>
+<!-- Link to book the console ? -->
+</div>
