@@ -2,7 +2,7 @@ class ConsolesController < ApplicationController
   before_action :set_console, only: [ :show, :edit, :update, :destroy ]
 
   def index
-    @consoles = Console.all
+    @consoles = policy_scope(Console).order(created_at: :desc)
   end
 
   def show
@@ -10,11 +10,14 @@ class ConsolesController < ApplicationController
 
   def new
     @console = Console.new
+    authorize @console
   end
 
   def create
     @console = Console.new(console_params)
+    authorize @console
     @console.user = current_user
+
     if @console.save
       redirect_to console_path(@console)
     else
@@ -26,7 +29,6 @@ class ConsolesController < ApplicationController
   end
 
   def update
-
     if @console.update(console_params)
       redirect_to console_path(@console)
     else
@@ -47,6 +49,7 @@ class ConsolesController < ApplicationController
 
   def set_console
     @console = Console.find(params[:id])
+    authorize @console
   end
 
 end
