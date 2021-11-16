@@ -1,0 +1,38 @@
+a {
+  display: flex;
+  justify-content: center;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.card {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  max-width: 300px;
+  img {
+    padding: 5px;
+    border-radius: 4px;
+  }
+  h4 {
+    font-weight: bold;
+  }
+  h5 {
+    opacity: 0.5;
+  }
+  p {
+    text-align: center;
+    color: lightgrey;
+    max-height: 50px;
+    overflow: hidden;
+  }
+  .information {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

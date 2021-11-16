@@ -1,0 +1,12 @@
+<% if policy(Console).create? %>
+  <%= link_to "Create an offer", new_console_path %>
+<% end %>
+
+<% if policy(Console).update? %>
+<!--  ATTENTION: REMPLACER console par la variable d'instance -->
+  <%= link_to "Update an offer", edit_console_path(console) %>
+<% end %>
+
+<% if policy(Console).destroy? %>
+  <%= link_to 'Delete', console_path(console), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
