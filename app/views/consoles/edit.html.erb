@@ -1,0 +1,12 @@
+<div class="container mt-3">
+  <%= simple_form_for(@console) do |f| %>
+    <%= f.input :name, label: "Your console to lease" %>
+    <%= f.input :model, label: "Its model?"%>
+    <%= f.input :content, label: "Its equipment"%>
+    <%= f.input :price_per_day, label: "Cost per day" %>
+    <!-- REMAINDER: PREVENT FROM NEGATIVE NUMBERS AND ALLOW FLOAT-->
+
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+    <%= f.submit "Update an offer", class: "btn btn-outline-primary" %>
+  <% end %>
+</div>
