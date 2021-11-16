@@ -2,13 +2,7 @@
   <h1>All available consoles</h1>
 
 <!-- All consoles, loop with each -->
-  <% @consoles.each do |console| %>
-  <!-- Each console's variable -->
-    <%= link_to console_path(console) do %>
-      <%= console.name %>
-      <%= console.model %>
-      <% console.photos.first %>
-      <%= "#{console.price_per_day}€" %>
-    <% end %>
-  <% end %>
+  <div class="cards-container">
+    <%= render "shared/cards", consoles: @consoles %>
+  </div>
 </div>
