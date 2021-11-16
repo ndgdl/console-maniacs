@@ -1,0 +1,33 @@
+.title {
+  display: flex;
+  align-content: center;
+}
+.picture-1 {
+  grid-area: picture-1;
+}
+.picture-2{
+  grid-area: picture-2;
+}
+.picture-3 {
+  grid-area: picture-3;
+}
+.pictures {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 10px;
+  row-gap: 10px;
+  grid-template-areas:
+  "picture-1 picture-1 picture-2"
+  "picture-1 picture-1 picture-3";
+}
+.pictures img {
+    border-radius: 5px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+p {
+  color: rgb(54, 54, 54);
+}
