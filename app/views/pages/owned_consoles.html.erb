@@ -1,1 +1,30 @@
-<h1>TEST</h1>
+<h1>Hello <%= current_user.first_name %>!</h1>
+<h3>Welcome in your dashboard</h3>
+<div class="consoles">
+  <%= link_to new_console_path do%>
+    <button class="glow-on-hover" type="button">Submit new console</button>
+  <%end%>
+  <% @consoles.each do |console| %>
+    <%= link_to console_path(console) do %>
+      <div class="notification">
+        <div class="notification-content">
+          <%= cl_image_tag console.photos.first.key, class:"avatar-square" %>
+          <div class="naming">
+          <p><%= console.name %></p>
+          <p><small><%= console.model %></small></p>
+          <p><em><%= console.price_per_day %>€</em></p>
+          </div>
+        </div>
+
+        <div class="notification-actions">
+          <%= link_to edit_console_path(console) do%>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+          <%= link_to console_path(console), method: :delete, data: { confirm: "Are you sure?" } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
