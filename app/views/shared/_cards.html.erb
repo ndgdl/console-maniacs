@@ -3,7 +3,6 @@
   <% consoles.each do |console| %>
     <%= link_to console_path(console) do %>
       <div class="card">
-        <%= cl_image_tag console.photos.first.key %>
         <h4><%= console.name %></h4>
         <h5><%= console.model %></h5>
         <p><%= console.content %></p>
