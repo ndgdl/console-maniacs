@@ -9,11 +9,8 @@
       <%= f.input :content, label: "Describe your equipment", placeholder: "Number of controllers, games available, etc." %>
       <%= f.input :price_per_day, label: "How much per day?", placeholder: "9.99€" %>
       <!-- REMAINDER: PREVENT FROM NEGATIVE NUMBERS AND ALLOW FLOAT-->
-      <%= f.input :photos, label: "3 photos required", as: :file, input_html: { multiple: true } %>
-      <div class="glow-on-hover">
-        <p>Create an offer</p>
-        <%= f.submit "Create an offer", type:"hidden"%>
-      </div>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.submit "Create an offer", class: "glow-on-hover"%>
     <% end %>
   </div>
 </div>
