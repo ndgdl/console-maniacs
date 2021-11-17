@@ -3,4 +3,8 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def owned_consoles
+    @consoles = policy_scope(Console).where(user: current_user)
+  end
 end
