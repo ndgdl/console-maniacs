@@ -1,3 +1,5 @@
+
+
 <div class="container mt-3">
   <%= simple_form_for(@console) do |f| %>
     <%= f.input :name, label: "What console would you like to lease?", placeholder: "PS4, Xbox One, Tamagotchi..." %>
@@ -10,3 +12,5 @@
     <%= f.submit "Create an offer", class: "btn btn-outline-primary" %>
   <% end %>
 </div>
+
+<%= render 'shared/footer' %>

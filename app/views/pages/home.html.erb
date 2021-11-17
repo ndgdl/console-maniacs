@@ -1,44 +1,16 @@
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
-</head>
+  <%= render 'shared/navbar' %>
 
-<body>
   <div class="banner">
     <div class="container">
-      <h1>Welcome to Console Maniacs</h1>
-      <h2 class="font-monospace">Don't buy a video game console, rent one</h2>
-      <div class="search-box">
-        <button class="btn-search"><i class="fas fa-search"></i></button>
-        <input type="text" class="input-search" placeholder="Type to Search...">
-      </div>
+        <h1>Welcome to Console Maniacs</h1>
+        <h2 class="font-monospace">Don't buy a video game console, rent one</h2>
+        <%= link_to consoles_path do%>
+         <button class="glow-on-hover" type="button">See all the consoles</button>
+        <%end%>
+        <%= link_to consoles_path do%>
+         <button class="glow-on-hover" type="button">Submit your console</button>
+        <%end%>
     </div>
   </div>
 
-  <div class="container">
-    <div class="cards">
-      <div class="card">
-        <p>Card 1</p>
-      </div>
-      <div class="card">
-        <p>Card 2</p>
-      </div>
-      <div class="card">
-        <p>Card 3</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-links">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-    </div>
-    <div class="footer-copyright">
-      This website is made with <i class="fas fa-heart"></i> by Jeremy, Nico & Alex x2
-    </div>
-  </div>
-
-</body>
+  <%= render 'shared/footer' %>
