@@ -1,49 +1,25 @@
-// Specific CSS for your home-page
-body {
-  position: relative;
-  height: 100vh;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%, rgba(0,0,0,1) 100%);
-  text-align: center;
-}
-
-.banner {
-  height: 100vh;
+.container_form {
   display: flex;
-  align-items: center;
-  background-image: asset_url("background.jpeg");
-  object-fit: cover;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  top: -75px;
-}
-
-.banner h2 {
-  color: white;
-  text-align: center;
-  text-shadow: 1px 1px 25px black;
-  font-size: 40px;
-  font-family: 'Odibee Sans', cursive;
-}
-
-.banner h1 {
-  color: white;
-  text-align: center;
-  text-shadow: 1px 1px 25px black;
-  font-size: 80px;
-  font-family: 'Odibee Sans', cursive;
-}
-
- @media(max-width: 992px) {
-  .cards {
-    grid-template-columns: 1fr 1fr;
+  .form {
+    width: 40%;
+    margin:auto;
+    text-align: left;
+    align-items: center;
   }
-}
-
-@media(max-width: 768px) {
-  .cards {
-    grid-template-columns: 1fr;
+  h2 {
+    text-align: center;
+    background-color: #6F42B3;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 50px;
+    color: white;
+    border-radius: 10px;
+  }
+  p {
+    text-align: center;
+    color: white;
+    font-family: 'Odibee Sans', cursive;
+    font-size: 25px;
+    padding-top: 5px;
   }
 }
 

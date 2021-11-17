@@ -17,7 +17,11 @@
   <body class="<%="home" if params[:action] == "home" %>">
     <%= render 'shared/navbar'%>
     <%= render 'shared/flashes' %>
+    
+    <div class="fixed_footer">
+      <%= yield %>
+    </div>
 
-    <%= yield %>
+    <%= render 'shared/footer' %>
   </body>
 </html>
