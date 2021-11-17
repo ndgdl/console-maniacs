@@ -18,6 +18,10 @@
     <%= render 'shared/navbar'%>
     <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <div class="fixed_footer">
+      <%= yield %>
+    </div>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>
