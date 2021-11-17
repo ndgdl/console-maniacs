@@ -32,7 +32,7 @@
             <%= link_to "Messages", "#", class: "dropdown-item" %>
             <%= link_to "Consoles", "#", class: "dropdown-item" %>
             <%= link_to "Wishlists", "#", class: "dropdown-item" %>
-            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Tools", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
