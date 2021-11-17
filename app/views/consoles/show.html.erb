@@ -20,7 +20,8 @@
   </div>
 
 <!-- Buttons -->
-  <%= link_to 'Back to the list', consoles_path, class: 'btn btn-outline-secondary' %>
+  <%= link_to consoles_path do%>
+    <button class="glow-on-hover" type="button">Back to all consols</button>
+  <%end%>
 <!-- Link to book the console ? -->
 </div>
-<%= render 'shared/footer' %>
