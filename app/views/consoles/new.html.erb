@@ -10,9 +10,9 @@
       <%= f.input :price_per_day, label: "How much per day?", placeholder: "9.99€" %>
       <!-- REMAINDER: PREVENT FROM NEGATIVE NUMBERS AND ALLOW FLOAT-->
       <%= f.input :photos, label: "3 photos required", as: :file, input_html: { multiple: true } %>
-      <div class="glow-on-hover">
+      <%= f.submit type:"submit", class:"glow-on-hover" do %>
         <p>Create an offer</p>
-        <%= f.submit "Create an offer", type:"hidden"%>
+      <% end %>
       </div>
     <% end %>
   </div>
