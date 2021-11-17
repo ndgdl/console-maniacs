@@ -11,7 +11,7 @@ body {
   height: 100vh;
   display: flex;
   align-items: center;
-  background-image: url("background.jpeg");
+  background-image: asset_url("background_image.jpeg");
   object-fit: cover;
   background-size: cover;
   background-position: center;
