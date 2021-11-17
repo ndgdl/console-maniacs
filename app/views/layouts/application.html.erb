@@ -14,7 +14,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body>
+  <body class="<%="home" if params[:action] == "home" %>">
     <%= render 'shared/navbar'%>
     <%= render 'shared/flashes' %>
     
