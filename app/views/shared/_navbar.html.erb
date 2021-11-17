@@ -27,12 +27,16 @@
           <%= link_to "Log out", destroy_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% else %>
+            <%= image_tag asset_url("placeholder.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Messages", "#", class: "dropdown-item" %>
             <%= link_to "Consoles", owned_consoles_path(current_user), class: "dropdown-item" %>
             <%= link_to "Wishlists", "#", class: "dropdown-item" %>
-            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Tools", "#", class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
