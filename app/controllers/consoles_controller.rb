@@ -38,7 +38,7 @@ class ConsolesController < ApplicationController
 
   def destroy
     @console.destroy
-    redirect_to consoles_path
+    redirect_to owned_consoles_path(current_user)
   end
 
   private
