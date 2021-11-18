@@ -1,7 +1,5 @@
-<div class="container mt-3">
-
+<div class="container">
   <!-- Console variables with photos -->
-  <div class="main">
     <div class="console">
       <div class="title">
         <h1><%= @console.name %></h1>
@@ -23,12 +21,10 @@
         <button class="glow-on-hover" type="button">Back to all consols</button>
       <%end%>
     </div>
-      <%= link_to new_console_booking_path(@console) do%>
-        <button class="glow-on-hover" type="button">Book this console</button>
-      <%end%>
       <!-- Link to book the console ? -->
     <div class="booking">
       <div class="form">
+        <h4>Book <%= @console.name %></h4>
         <%= simple_form_for([@console, @booking]) do |f| %>
         <%= f.input :starting_date,  as: :string, input_html: {class: "datepicker"} %>
         <%= f.input :ending_date,  as: :string, input_html: {class: "datepicker"} %>
@@ -36,5 +32,4 @@
       <% end %>
       </div>
     </div>
-  </div>
 </div>
