@@ -1,7 +1,7 @@
 <h1>Edit booking</h1>
 
 <%= simple_form_for(@booking) do |f| %>
-      <%= f.input :starting_date %>
-      <%= f.input :ending_date %>
+      <%= f.input :starting_date, input_html: {class: "datepicker"} %>
+      <%= f.input :ending_date, input_html: {class: "datepicker"} %>
       <%= f.submit %>
 <% end %>
