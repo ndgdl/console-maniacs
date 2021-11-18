@@ -1,8 +1,21 @@
-.mapboxgl-popup {
-  max-width: 400px;
-}
-
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Odibee Sans', cursive;
+  height: 250px;
+  width: 225px;
+  h5 {
+    font-size: 15px;
+  }
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 74px;
+}
+
+.map_button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
 }
