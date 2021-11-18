@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :consoles do
-    resources :bookings, except: [:index, :destroy]
+    resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: :destroy
+  resources :bookings, except: [:new, :create, :index]
 
   get '/users/:id/bookings/', to: "bookings#index", as: :booked_consoles
   get '/users/:id/consoles/', to: "pages#owned_consoles", as: :owned_consoles
