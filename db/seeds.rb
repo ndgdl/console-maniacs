@@ -78,16 +78,16 @@ puts "#{User.count} users created"
 puts 'Seeding consoles...'
 
 consoles = ["Game Boy",
-            "Tamagotchi",
-            "Nintendo Switch",
-            "PlayStation 3",
-            "PlayStation 4",
-            "PlayStation 5",
-            "Wii",
-            "Xbox",
-            "Xbox 360",
-            "Xbox One",
-            "Xbox Series X"]
+ "Tamagotchi",
+ "Nintendo Switch",
+ "PlayStation 3",
+ "PlayStation 4",
+ "PlayStation 5",
+ "Wii",
+ "Xbox",
+ "Xbox 360",
+ "Xbox One",
+ "Xbox Series X"]
 
 count = 1
 rand(5..10).times do
