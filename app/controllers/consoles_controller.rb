@@ -3,6 +3,13 @@ class ConsolesController < ApplicationController
 
   def index
     @consoles = policy_scope(Console).order(created_at: :desc)
+
+    @markers = @consoles.user.address.geocoded.map do |console|
+      {
+        lat: console.latitude,
+        lng: console.longitude
+      }
+    end
   end
 
   def show

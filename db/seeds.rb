@@ -24,7 +24,7 @@ alexandre = User.new(
   email: "havard@test.com",
   password: "password",
   password_confirmation: "password",
-  address: "75013 Paris"
+  address: "18-22 Av. Dumont, 93600 Aulnay-sous-Bois"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/87811770?v=4')
 alexandre.photo.attach(io: file, filename: 'alexandre.jpg', content_type: 'image/png')
@@ -38,7 +38,7 @@ alex = User.new(
   email: "vigreux@test.com",
   password: "password",
   password_confirmation: "password",
-  address: "75019 Paris"
+  address: "246 rue du Faubourg Saint-Martin, 75010 Paris"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/87474835?v=4')
 alex.photo.attach(io: file, filename: 'alex.jpg', content_type: 'image/png')
@@ -52,7 +52,7 @@ jeremy = User.new(
   email: "blondeau@test.com",
   password: "password",
   password_confirmation: "password",
-  address: "75017 Paris"
+  address: "Place d'Armes, 78000 Versailles"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/86318433?v=4')
 jeremy.photo.attach(io: file, filename: 'jeremy.jpg', content_type: 'image/png')
@@ -66,7 +66,7 @@ nicolas = User.new(
   email: "deguilhem@test.com",
   password: "password",
   password_confirmation: "password",
-  address: "75015 Paris"
+  address: "65 Rue Antoine Marie Colin, 94400 Vitry-sur-Seine"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/88536137?v=4')
 nicolas.photo.attach(io: file, filename: 'nicolas.jpg', content_type: 'image/png')
