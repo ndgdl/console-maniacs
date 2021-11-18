@@ -5,10 +5,11 @@
     <button class="glow-on-hover" type="button">Submit new console</button>
   <%end%>
   <% @consoles.each do |console| %>
-    <%= link_to console_path(console) do %>
       <div class="notification">
         <div class="notification-content">
-          <%= cl_image_tag console.photos.first.key, class:"avatar-square" %>
+          <%= link_to console_path(console) do %>
+            <%= cl_image_tag console.photos.first.key, class:"avatar-square" %>
+          <% end %>
           <div class="naming">
           <p><%= console.name %></p>
           <p><small><%= console.model %></small></p>
@@ -24,9 +25,9 @@
               <i class="far fa-trash-alt"></i>
             <% end %>
           </div>
-          <% if console.bookings %>
+          <% if console.bookings.count > 0 %>
           <div class="button-actions">
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#bookingsList" aria-expanded="false" aria-controls="bookingsList">
+            <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#bookingsList<%= console.id %>" aria-expanded="false" aria-controls="bookingsList<%= console.id %>">
               Check requests
             </button>
           </div>
@@ -34,7 +35,7 @@
         </div>
       </div>
 
-      <div class="collapse" id="bookingsList">
+      <div class="collapse" id="bookingsList<%= console.id %>">
         <div class="list-group">
           <% console.bookings.each do |booking| %>
             <div class="list-group-item list-group-item-action">
@@ -51,6 +52,6 @@
           <% end %>
         </div>
       </div>
-    <% end %>
+
   <% end %>
 </div>

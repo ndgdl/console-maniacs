@@ -41,6 +41,7 @@
   opacity: 0;
   display: flex;
   transition: ease .3s;
+  flex-grow: 1;
 }
 
 .notification:hover .notification-actions {
