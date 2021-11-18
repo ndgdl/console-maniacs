@@ -1,7 +1,7 @@
 <!-- Each console's variable -->
 <div class="cards">
   <% consoles.each do |console| %>
-    <%= link_to console_path(console) do %>
+    <%= link_to consoles_path(console) do %>
       <div class="card">
         <%= cl_image_tag console.photos.first.key, height: 300, width: 300, crop: :fill %>
         <h4><%= console.name %></h4>

@@ -20,13 +20,13 @@
 }
 
 .recherche_p{
-	background-color: #443f3f;
+	background-color: transparent;
 	border: 1px solid #dddddd;
 }
 .recherche-barr{
 	margin-bottom: auto;
 	margin-top: auto;
-	background-color: white;
+	background-color: transparent;
 }
 .recherche-input{
 	border: 0;
@@ -34,8 +34,8 @@
 	line-height: 40px;
 }
 .recherche-input{
-	padding: 0 10px;
-	width: 400px;
+	padding: 10 10px;
+	width: auto;
 }
 .recherche-icone:hover{
 	color: grey;
@@ -48,5 +48,5 @@
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	color: grey;
+	color: black;
 }
