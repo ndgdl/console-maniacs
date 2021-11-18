@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_one_attached :photo
   has_many :consoles
-  has_many :reservations
+  has_many :bookings
 
   validates :first_name, :last_name, :phone_number, presence: true
 end
