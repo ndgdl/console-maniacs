@@ -1,0 +1,7 @@
+<h1>New booking</h1>
+
+<%= simple_form_for([@console, @booking]) do |f| %>
+      <%= f.input :starting_date %>
+      <%= f.input :ending_date %>
+      <%= f.submit "Create a booking" %>
+<% end %>

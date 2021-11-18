@@ -1,4 +1,4 @@
-class Reservation < ApplicationRecord
+class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :console
 
