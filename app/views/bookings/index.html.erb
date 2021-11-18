@@ -1,1 +1,8 @@
 <h1>Bookings#index</h1>
+
+<% @bookings.each do |booking| %>
+  <%= booking.status %> |
+  <%= booking.starting_date %> |
+  <%= booking.ending_date %>
+ <br>
+<% end %>

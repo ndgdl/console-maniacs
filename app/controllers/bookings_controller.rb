@@ -1,23 +1,27 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings
+    @bookings = policy_scope(current_user.bookings)
   end
 
   def show
-    @booking = Booking.find(params[:id])
   end
 
   def new
     @booking = Booking.new
+    @console = Console.find(params[:console_id])
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.user = current_user
 
+    authorize @booking
+
+    @booking.user = current_user
+    @booking.console = Console.find(params[:console_id])
 
     if @booking.save
-      redirect_to console_bookings_path
+      redirect_to booked_consoles_path(current_user)
     else
       render :new
     end
@@ -39,6 +43,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:bookings).permit(:starting_date, :ending_date)
+    params.require(:booking).permit(:starting_date, :ending_date, :console_id)
   end
 end
