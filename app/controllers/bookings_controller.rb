@@ -1,4 +1,7 @@
 class BookingsController < ApplicationController
+
+# CRUD OPERATIONS FROM ALL USERS
+
   def index
     @bookings = policy_scope(current_user.bookings)
   end
@@ -43,11 +46,34 @@ class BookingsController < ApplicationController
     end
   end
 
+
   def destroy
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
     redirect_to booked_consoles_path(current_user)
+  end
+
+  # APPROVE OR DENY BUTTONS ONLY FOR OWNERS
+
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+
+    authorize @booking
+
+    redirect_to owned_consoles_path(current_user)
+  end
+
+  def deny
+    @booking = Booking.find(params[:id])
+    @booking.status = "denied"
+    @booking.save
+
+    authorize @booking
+
+    redirect_to owned_consoles_path(current_user)
   end
 
   private
