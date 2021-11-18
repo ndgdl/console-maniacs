@@ -3,18 +3,34 @@ class ConsolesController < ApplicationController
 
   def index
     @consoles = policy_scope(Console).order(created_at: :desc)
+    if params[:query].present?
+      @consoles = @consoles.search_by_name(params[:query])
+      @console_owners = []
+      @consoles.each do |console|
+        @console_owners << [console.address, console]
+      end
+      @markers = @console_owners.map do |owner|
+        {
+          lat: owner[0][0],
+          lng: owner[0][1],
+          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] })
+        }
+      end
+      else
+        @consoles = policy_scope(Console).order(created_at: :desc)
+        @console_owners = []
+      @consoles.each do |console|
+        @console_owners << [console.address, console]
+      end
+      @markers = @console_owners.map do |owner|
+        {
+          lat: owner[0][0],
+          lng: owner[0][1],
+          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] })
+        }
+      end
+    end
 
-    @console_owners = []
-    @consoles.each do |console|
-      @console_owners << [console.address, console]
-    end
-    @markers = @console_owners.map do |owner|
-      {
-        lat: owner[0][0],
-        lng: owner[0][1],
-        info_window: render_to_string(partial: "info_window", locals: { console: owner[1] })
-      }
-    end
   end
 
   def show
