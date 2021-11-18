@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :bookings, except: [:new, :create, :index] do
     member do
       post :approve
+      post :deny
     end
   end
 

@@ -15,6 +15,10 @@ class BookingPolicy < ApplicationPolicy
     record.console.user == user
   end
 
+  def deny?
+    record.console.user == user
+  end
+
   class Scope < Scope
     def resolve
       scope.all
