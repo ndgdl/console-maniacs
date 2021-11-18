@@ -35,3 +35,5 @@ document.addEventListener('turbolinks:load', () => {
 
   initFlatpickr();
 });
+
+import "controllers"

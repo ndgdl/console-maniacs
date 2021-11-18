@@ -23,7 +23,8 @@ alexandre = User.new(
   phone_number: "+33600000000",
   email: "havard@test.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  address: "18-22 Av. Dumont, 93600 Aulnay-sous-Bois"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/87811770?v=4')
 alexandre.photo.attach(io: file, filename: 'alexandre.jpg', content_type: 'image/png')
@@ -36,7 +37,8 @@ alex = User.new(
   phone_number: "+33600000000",
   email: "vigreux@test.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  address: "246 rue du Faubourg Saint-Martin, 75010 Paris"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/87474835?v=4')
 alex.photo.attach(io: file, filename: 'alex.jpg', content_type: 'image/png')
@@ -49,7 +51,8 @@ jeremy = User.new(
   phone_number: "+33600000000",
   email: "blondeau@test.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  address: "Place d'Armes, 78000 Versailles"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/86318433?v=4')
 jeremy.photo.attach(io: file, filename: 'jeremy.jpg', content_type: 'image/png')
@@ -62,7 +65,8 @@ nicolas = User.new(
   phone_number: "+33600000000",
   email: "deguilhem@test.com",
   password: "password",
-  password_confirmation: "password"
+  password_confirmation: "password",
+  address: "65 Rue Antoine Marie Colin, 94400 Vitry-sur-Seine"
 )
 file = URI.open('https://avatars.githubusercontent.com/u/88536137?v=4')
 nicolas.photo.attach(io: file, filename: 'nicolas.jpg', content_type: 'image/png')
