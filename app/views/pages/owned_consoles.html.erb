@@ -5,42 +5,64 @@
     <button class="glow-on-hover" type="button">Submit new console</button>
   <%end%>
   <% @consoles.each do |console| %>
-    <%= link_to console_path(console) do %>
       <div class="notification">
         <div class="notification-content">
-          <%= cl_image_tag console.photos.first.key, class:"avatar-square" %>
+          <%= link_to console_path(console) do %>
+            <%= cl_image_tag console.photos.first.key, class:"avatar-square" %>
+          <% end %>
           <div class="naming">
           <p><%= console.name %></p>
           <p><small><%= console.model %></small></p>
           <p><em><%= console.price_per_day %>€</em></p>
           </div>
         </div>
-
-        <div class="notification-actions">
-          <%= link_to edit_console_path(console) do%>
-            <i class="fas fa-pencil-alt"></i>
-          <% end %>
-          <%= link_to console_path(console), method: :delete, data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt"></i>
+        <div class="actions">
+          <div class="notification-actions">
+            <%= link_to edit_console_path(console) do%>
+              <i class="fas fa-pencil-alt"></i>
+            <% end %>
+            <%= link_to console_path(console), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt"></i>
+            <% end %>
+          </div>
+          <% if console.bookings.count > 0 %>
+          <div class="button-actions">
+            <button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#bookingsList<%= console.id %>" aria-expanded="false" aria-controls="bookingsList<%= console.id %>">
+              Check requests
+            </button>
+          </div>
           <% end %>
         </div>
       </div>
 
-      <div class="list-grou">
-        <% console.bookings.each do |booking| %>
-          <div class="list-group-item list-group-item-action">
-            <div class="booking-info">
-              <%= "Request #{booking.status.upcase} from #{booking.user.first_name} (#{booking.starting_date} | #{booking.ending_date}) " %>
+      <div class="collapse" id="bookingsList<%= console.id %>">
+        <div class="list-group">
+          <% console.bookings.each do |booking| %>
+            <div class="list-group-item list-group-item-action">
+              <div class="booking-info">
+
+                <% case booking.status
+                when "denied"
+                  class_name_for_status = "text-danger"
+                when "accepted"
+                  class_name_for_status = "text-success"
+                else
+                  class_name_for_status = "text-secondary"
+                end  %>
+                <% n_days = (booking.ending_date - booking.starting_date).to_i %>
+                <p><%= "Request "%><span class="<%= class_name_for_status %>"><%= "#{booking.status.upcase}" %></span> <%= "from #{booking.user.first_name}" %>
+                <%= "(#{n_days} days from #{booking.starting_date.strftime("%b %-d %Y")})" %></p>
+              </div>
+              <% if booking.status == "pending" %>
+              <div class="booking-actions">
+                <%= link_to "Accept", approve_booking_path(booking), method: :post,class: "btn btn-outline-success" %>
+                <%= link_to "Deny", deny_booking_path(booking), method: :post,class: "btn btn-outline-danger" %>
+              </div>
+              <% end %>
             </div>
-            <% if booking.status == "pending" %>
-            <div class="booking-actions">
-              <%= link_to "Accept", approve_booking_path(booking), method: :post,class: "btn btn-outline-success" %>
-              <%= link_to "Deny", deny_booking_path(booking), method: :post,class: "btn btn-outline-danger" %>
-            </div>
-            <% end %>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-    <% end %>
+
   <% end %>
 </div>
