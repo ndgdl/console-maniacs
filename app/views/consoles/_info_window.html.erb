@@ -1,8 +1,5 @@
-<div>
-  <h5><%= console.name %></h5>
-  <%= cl_image_tag console.photos[0].key, width: 120 %>
-  <h6><%= console.price_per_day %>€ / day</h6>
-  <%= link_to console_path(console) do%>
-    <button class="map_button" type="button">See details</button>
-  <%end%>
-</div>
+<%# <%= owner.consoles.each do |console| %>
+<h5><%= console.name %></h5>
+<h6><%= console.model %></h6>
+
+<%# <% end %>
