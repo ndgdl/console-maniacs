@@ -40,7 +40,7 @@
           <% console.bookings.each do |booking| %>
             <div class="list-group-item list-group-item-action">
               <div class="booking-info">
-                <%= "Request "%>
+
                 <% case booking.status
                 when "denied"
                   class_name_for_status = "text-danger"
@@ -49,8 +49,9 @@
                 else
                   class_name_for_status = "text-secondary"
                 end  %>
-                <span class="<%= class_name_for_status %>"><%= "#{booking.status.upcase}" %></span>
-                <%= "from #{booking.user.first_name} (#{booking.starting_date} | #{booking.ending_date}) " %>
+                <% n_days = (booking.ending_date - booking.starting_date).to_i %>
+                <p><%= "Request "%><span class="<%= class_name_for_status %>"><%= "#{booking.status.upcase}" %></span> <%= "from #{booking.user.first_name}" %>
+                <%= "(#{n_days} days from #{booking.starting_date.strftime("%b %-d %Y")})" %></p>
               </div>
               <% if booking.status == "pending" %>
               <div class="booking-actions">
