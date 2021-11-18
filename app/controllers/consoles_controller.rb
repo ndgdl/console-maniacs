@@ -5,9 +5,6 @@ class ConsolesController < ApplicationController
     @consoles = policy_scope(Console).order(created_at: :desc)
 
     @console_owners = []
-    # @consoles.each do |console|
-    #   @console_owners << console.user.address
-    # end
     @consoles.each do |console|
       @console_owners << console.address
     end
