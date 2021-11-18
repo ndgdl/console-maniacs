@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, except: [:new, :create, :index]
+  resources :bookings, except: [:new, :create, :index] do
+    member do
+      post :approve
+    end
+  end
 
   get '/users/:id/bookings/', to: "bookings#index", as: :booked_consoles
   get '/users/:id/consoles/', to: "pages#owned_consoles", as: :owned_consoles

@@ -25,6 +25,19 @@
           <% end %>
         </div>
       </div>
+
+      <div class="list-grou">
+        <% console.bookings.each do |booking| %>
+          <div class="list-group-item list-group-item-action">
+            <div class="booking-info">
+              <%= "#{booking.status.upcase} from #{booking.user.first_name} (#{booking.starting_date} | #{booking.ending_date}) " %>
+            </div>
+            <div class="booking-actions">
+              <%= link_to "Accept", approve_booking_path(booking), method: :post,class: "btn btn-outline-success" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>

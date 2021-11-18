@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def index
     @bookings = policy_scope(current_user.bookings)
   end
@@ -41,6 +43,16 @@ class BookingsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def approve
+    @booking = Booking.find(params[:id])
+    @booking.status = "accepted"
+    @booking.save
+
+    authorize @booking
+
+    redirect_to owned_consoles_path(current_user)
   end
 
   def destroy
