@@ -1,10 +1,30 @@
-<h1>Bookings#index</h1>
+<div class="container-booking m-3">
+  <h1><%= current_user.first_name.capitalize %>'s Booking(s)</h1>
+  <h4>You have <%= @bookings.count %> booking(s)</h4>
 
-<% @bookings.each do |booking| %>
-  <%= booking.status %> |
-  <%= booking.starting_date %> |
-  <%= booking.ending_date %>
-  <%= link_to "Edit", edit_booking_path(booking) %>
-  <%= link_to "Delete", booking_path(booking), method: :delete %>
+  <div class="bookings">
+    <% @bookings.each do |booking| %>
 
-<% end %>
+          <div class="notification">
+            <div class="notification-content">
+              <%= cl_image_tag booking.console.photos.first.key, class:"avatar-square" %>
+              <div class="naming">
+              <p><%= booking.console.name %></p>
+              <p>Rented by <small><%= booking.user.first_name %></small></p>
+              <p>Cost: <%= (booking.ending_date - booking.starting_date) * booking.console.price_per_day %>€ for <%=(booking.ending_date - booking.starting_date).to_i%> day(s)</p>
+              <p><em>from <%= booking.starting_date %> to <%= booking.ending_date %></em></p>
+              </div>
+            </div>
+
+            <div class="notification-actions">
+              <%= link_to edit_booking_path(booking) do%>
+                <i class="fas fa-pencil-alt"></i>
+              <% end %>
+              <%= link_to booking_path(booking), method: :delete, data: { confirm: "Are you sure?" } do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
+          </div>
+    <% end %>
+  </div>
+</div>
