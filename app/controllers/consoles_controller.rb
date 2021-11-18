@@ -4,10 +4,17 @@ class ConsolesController < ApplicationController
   def index
     @consoles = policy_scope(Console).order(created_at: :desc)
 
-    @markers = @consoles.user.address.geocoded.map do |console|
+    @console_owners = []
+    # @consoles.each do |console|
+    #   @console_owners << console.user.address
+    # end
+    @consoles.each do |console|
+      @console_owners << console.address
+    end
+    @markers = @console_owners.map do |owner|
       {
-        lat: console.latitude,
-        lng: console.longitude
+        lat: owner[0],
+        lng: owner[1]
       }
     end
   end

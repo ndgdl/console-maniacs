@@ -6,4 +6,9 @@ class Console < ApplicationRecord
 
   validates :name, :price_per_day, :content, :model, presence: true
   validates :price_per_day, numericality: { only_float: true }
+
+  def address
+    self.user.geocode
+  end
+
 end
