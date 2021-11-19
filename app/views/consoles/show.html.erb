@@ -9,23 +9,28 @@
     <%= cl_image_tag @console.photos[1].key, class:"picture-2" %>
     <%= cl_image_tag @console.photos[2].key, class:"picture-3" %>
   </div>
-  <div class="main">
-    <div class="content">
+
+  <div class="main-show">
+    <div class="show-content">
       <h3><%= @console.model %></h3>
       <p><%= @console.content %></p>
+      <p>Rented by <small><%= @console.user.first_name %></small></p>
+      <%= link_to consoles_path do%>
+        <button class="glow-on-hover" type="button">Back to all consols</button>
+      <%end%>
     </div>
-    <div class="booking">
-
+    <div class="show-booking">
+      <div class="widget-content" data-unavailable="<%= @console.unavailable_dates.to_json %>">
+        <%= simple_form_for([@console, @booking]) do |f| %>
+          <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+          <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+          <%= f.submit "Book the #{@console.name}", class: "glow-on-hover"%>
+        <% end %>
+      </div>
     </div>
   </div>
 
 <!-- Buttons -->
-  <%= link_to consoles_path do%>
-    <button class="glow-on-hover" type="button">Back to all consols</button>
-  <%end%>
 
-  <%= link_to new_console_booking_path(@console) do%>
-    <button class="glow-on-hover" type="button">Book this console</button>
-  <%end%>
 <!-- Link to book the console ? -->
 </div>

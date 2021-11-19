@@ -32,3 +32,18 @@ p {
   color: rgb(54, 54, 54);
   text-align: justify;
 }
+
+.main-show {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+.show-booking {
+  margin-left: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  padding: 10px;
+}
+.show-content {
+  padding: 10px;
+}
