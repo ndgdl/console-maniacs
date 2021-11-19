@@ -10,21 +10,22 @@
           <%= submit_tag "Search", class: "btn btn-dark" %>
         <% end %>
       </div>
-  </div>
+    </div>
 
+  <%= link_to new_console_path do%>
+        <button type="button" class="btn btn-dark">Submit your console</button>
+        <%end%>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Consoles
+            Dashboard
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <% if current_user.consoles.count > 0 %>
-              <%= link_to "Dashboard", owned_consoles_path(current_user), class: "dropdown-item" %>
-            <% end %>
-            <a class="dropdown-item" href="/consoles/new">Submit</a>
+            <%= link_to "My offers", owned_consoles_path, class: "dropdown-item" %>
+            <%= link_to "My bookings", booked_consoles_path, class: "dropdown-item" %>
           </div>
         </li>
         <li class="nav-item dropdown">
