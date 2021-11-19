@@ -23,7 +23,7 @@
       <div class="widget-content" data-unavailable="<%= @console.unavailable_dates.to_json %>">
         <%= simple_form_for([@console, @booking]) do |f| %>
           <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
-          <%= f.input :end_date, as: :string, label: "end date", placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+          <%= f.input :end_date, as: :string, label: "", placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
           <%= f.submit "Book the #{@console.name}", class: "glow-on-hover"%>
         <% end %>
       </div>
