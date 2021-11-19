@@ -1,7 +1,7 @@
 <h1>Edit booking</h1>
 
 <%= simple_form_for(@booking) do |f| %>
-      <%= f.input :starting_date, as: :string, input_html: {class: "datepicker"} %>
-      <%= f.input :ending_date, as: :string, input_html: {class: "datepicker"} %>
-      <%= f.submit %>
+  <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
+  <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
+  <%= f.submit %>
 <% end %>

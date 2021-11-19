@@ -17,11 +17,10 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-
+    @console = Console.find(params[:console_id])
     authorize @booking
-
     @booking.user = current_user
-    @booking.console = Console.find(params[:console_id])
+    @booking.console = @console
 
     if @booking.save
       redirect_to booked_consoles_path(current_user)
@@ -32,6 +31,7 @@ class BookingsController < ApplicationController
 
   def edit
     @booking = Booking.find(params[:id])
+    @console = Console.find(params[:console_id])
     authorize @booking
   end
 
@@ -79,6 +79,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:starting_date, :ending_date, :console_id)
+    params.require(:booking).permit(:start_date, :end_date, :console_id)
   end
 end
