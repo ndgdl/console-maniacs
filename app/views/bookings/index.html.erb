@@ -10,7 +10,7 @@
               <%= cl_image_tag booking.console.photos.first.key, class:"avatar-square" %>
               <div class="naming">
               <p><%= booking.console.name %></p>
-              <p>Rented by <small><%= booking.user.first_name %></small></p>
+              <p>Rented by <small><%= booking.console.user.first_name %></small></p>
               <p>Cost: <%= (booking.end_date - booking.start_date) * booking.console.price_per_day %>€ for <%=(booking.end_date - booking.start_date).to_i%> day(s)</p>
               <p><em>from <%= booking.start_date %> to <%= booking.end_date %></em></p>
               </div>
