@@ -27,17 +27,17 @@ const toggleDateInputs = function () {
       flatpickr(endDateInput, {
         dateFormat: 'Y-m-d',
         disable: unvailableDates,
-        onChange: function (_, selectedDate) {
-          if (selectedDate === '') {
-            costs.classList.remove('is-visible');
-          } else {
-            let startDate = parseDate(startDateInput.value);
-            let endDate = parseDate(endDateInput.value);
-            let hours = Math.ceil((endDate - startDate) / (1000 * 3600 * 24)) * 6;
-            updateCosts(hours);
-            costs.classList.add('is-visible');
-          }
-        },
+        // onChange: function (_, selectedDate) {
+        //   if (selectedDate === '') {
+        //     costs.classList.remove('is-visible');
+        //   } else {
+        //     let startDate = parseDate(startDateInput.value);
+        //     let endDate = parseDate(endDateInput.value);
+        //     let hours = Math.ceil((endDate - startDate) / (1000 * 3600 * 24)) * 6;
+        //     updateCosts(hours);
+        //     costs.classList.add('is-visible');
+        //   }
+        // },
       });
   }
 };
