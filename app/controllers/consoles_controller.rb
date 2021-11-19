@@ -13,7 +13,8 @@ class ConsolesController < ApplicationController
         {
           lat: owner[0][0],
           lng: owner[0][1],
-          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] })
+          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] }),
+          image_url: helpers.asset_url("marker")
         }
       end
       else
@@ -26,7 +27,8 @@ class ConsolesController < ApplicationController
         {
           lat: owner[0][0],
           lng: owner[0][1],
-          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] })
+          info_window: render_to_string(partial: "info_window", locals: { console: owner[1] }),
+          image_url: helpers.asset_url("marker")
         }
       end
     end
