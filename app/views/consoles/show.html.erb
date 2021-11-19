@@ -11,19 +11,20 @@
   </div>
 
   <div class="main-show">
-    <div class="content">
+    <div class="show-content">
       <h3><%= @console.model %></h3>
       <p><%= @console.content %></p>
+      <p>Rented by <small><%= @console.user.first_name %></small></p>
       <%= link_to consoles_path do%>
         <button class="glow-on-hover" type="button">Back to all consols</button>
       <%end%>
     </div>
-    <div class="booking">
+    <div class="show-booking">
       <div class="widget-content" data-unavailable="<%= @console.unavailable_dates.to_json %>">
         <%= simple_form_for([@console, @booking]) do |f| %>
           <%= f.input :start_date, as: :string, label: "Dates", placeholder: "From", wrapper_html: { class: "inline_field_wrapper" } %>
           <%= f.input :end_date, as: :string, label: '&nbsp;'.html_safe, placeholder: "To", disabled: true, wrapper_html: { class: "inline_field_wrapper" } %>
-          <%= f.submit "Book the #{@console.name}" %>
+          <%= f.submit "Book the #{@console.name}", class: "glow-on-hover"%>
         <% end %>
       </div>
     </div>
