@@ -15,7 +15,7 @@
   </div>
 
   <div class="buttons-left d-flex flex-row col-3 justify-content-end">
-    <%  %>
+    <% unless current_page?(root_path) %>
       <%= link_to new_console_path do%>
         <button type="button" id="btn-navbar" class="btn btn-dark m-0">Submit your console</button>
       <%end%>
