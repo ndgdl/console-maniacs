@@ -1,20 +1,9 @@
 import flatpickr from 'flatpickr';
 
-const numberWithCommas = (number) => {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-const parseDate = (string) => {
-  const pattern = /(\d{2})-(\d{2})-(\d{4})/;
-  return new Date(string.replace(pattern, '$3-$2-$1'));
-}
-
-
 
 const toggleDateInputs = function () {
   const startDateInput = document.getElementById('booking_start_date');
   const endDateInput = document.getElementById('booking_end_date');
-  const costs = document.querySelector('.costs');
 
   if (startDateInput && endDateInput) {
     const unvailableDates = JSON.parse(document.querySelector('.widget-content').dataset.unavailable)
