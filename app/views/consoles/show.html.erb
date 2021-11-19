@@ -9,23 +9,23 @@
     <%= cl_image_tag @console.photos[1].key, class:"picture-2" %>
     <%= cl_image_tag @console.photos[2].key, class:"picture-3" %>
   </div>
-  <div class="main">
+
+  <div class="main-show">
     <div class="content">
       <h3><%= @console.model %></h3>
       <p><%= @console.content %></p>
+      <%= link_to consoles_path do%>
+        <button class="glow-on-hover" type="button">Back to all consols</button>
+      <%end%>
     </div>
     <div class="booking">
-
+      <%= link_to new_console_booking_path(@console) do%>
+        <button class="glow-on-hover" type="button">Book this console</button>
+      <%end%>
     </div>
   </div>
 
 <!-- Buttons -->
-  <%= link_to consoles_path do%>
-    <button class="glow-on-hover" type="button">Back to all consols</button>
-  <%end%>
 
-  <%= link_to new_console_booking_path(@console) do%>
-    <button class="glow-on-hover" type="button">Book this console</button>
-  <%end%>
 <!-- Link to book the console ? -->
 </div>
