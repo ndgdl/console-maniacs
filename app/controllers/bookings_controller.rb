@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
     @booking.console = @console
 
     if @booking.save
-      redirect_to booked_consoles_path(current_user)
+      redirect_to booked_consoles_path
     else
       render :new
     end
@@ -40,7 +40,7 @@ class BookingsController < ApplicationController
     authorize @booking
 
     if @booking.update(booking_params)
-      redirect_to booked_consoles_path(current_user)
+      redirect_to booked_consoles_path
     else
       render :edit
     end
@@ -51,7 +51,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
-    redirect_to booked_consoles_path(current_user)
+    redirect_to booked_consoles_path
   end
 
   # APPROVE OR DENY BUTTONS ONLY FOR OWNERS
@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
 
     authorize @booking
 
-    redirect_to owned_consoles_path(current_user)
+    redirect_to owned_consoles_path
   end
 
   def deny
@@ -73,7 +73,7 @@ class BookingsController < ApplicationController
 
     authorize @booking
 
-    redirect_to owned_consoles_path(current_user)
+    redirect_to owned_consoles_path
   end
 
   private
