@@ -33,8 +33,7 @@ p {
   text-align: justify;
 }
 
-button {
-  font-family: 'Odibee Sans', cursive;
-  font-size: 25px;
-  margin-top: 20px;
+.main-show {
+  display: flex;
+  justify-content: space-evenly;
 }
