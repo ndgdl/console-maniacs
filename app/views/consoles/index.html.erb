@@ -6,7 +6,7 @@
       data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
-    <div class="col-8">
+    <div class="col-8" style="padding-right: 30px">
       <h1>All available consoles</h1>
       <!-- All consoles, loop with each -->
       <%= render "shared/cards", consoles: @consoles %>
