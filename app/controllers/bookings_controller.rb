@@ -62,7 +62,6 @@ class BookingsController < ApplicationController
     @booking.save
 
     authorize @booking
-
     redirect_to owned_consoles_path
   end
 

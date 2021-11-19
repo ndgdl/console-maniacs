@@ -18,7 +18,7 @@
               <%= cl_image_tag booking.console.photos.first.key, class:"avatar-square" %>
               <div class="naming">
               <h3>🎮 <%= booking.console.name %></h3>
-              <p>Rented by <small><%= booking.user.first_name %></small></p>
+              <p>Rented by <small><%= booking.console.user.first_name %></small></p>
               <p>💵 <%= (booking.end_date - booking.start_date) * booking.console.price_per_day %>€ for <%=(booking.end_date - booking.start_date).to_i%> day(s)</p>
               <p>🗓<em>from <%= booking.start_date.strftime("%d %B") %> to <%= booking.end_date.strftime("%d %B") %></em></p>
               <p>Status : <span class="<%= class_name_for_status %>"><%= booking.status %></span> </p>
