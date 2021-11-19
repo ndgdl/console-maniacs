@@ -1,51 +1,57 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag('logo.png') %>
-  <% end %>
-
-  <div class="recherche_p">
-      <div class="form-inline my-0 my-lg-0">
-          <%= form_tag consoles_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a console" %>
-          <%= submit_tag "Search", class: "btn btn-dark" %>
-        <% end %>
-      </div>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top d-flex justify-content-between">
+  <div class= "col-3 d-flex">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag('logo.png') %>
+    <% end %>
   </div>
 
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Consoles
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <% if current_user.consoles.count > 0 %>
-              <%= link_to "Dashboard", owned_consoles_path, class: "dropdown-item" %>
-            <% end %>
-            <a class="dropdown-item" href="/consoles/new">Submit</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% else %>
-            <%= image_tag asset_url("placeholder.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
-            <%= link_to "Messages", "#", class: "dropdown-item" %>
-            <%= link_to "Tools", "#", class: "dropdown-item" %>
-            <div class="dropdown-divider"></div>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+  <div class="recherche_p">
+    <div class="form-inline my-0 my-lg-0">
+      <%= form_tag consoles_path, method: :get do %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a console" %>
+        <%= submit_tag "Search", class: "btn btn-dark" %>
       <% end %>
-    </ul>
+    </div>
+  </div>
+
+  <div class="buttons-left d-flex flex-row col-3 justify-content-end">
+    <% unless current_page?(root_path) %>
+      <%= link_to new_console_path do%>
+        <button type="button" id="btn-navbar" class="btn btn-dark m-0">Submit your console</button>
+      <%end%>
+    <% end %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dashboard
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <%= link_to "My offers", owned_consoles_path, class: "dropdown-item" %>
+              <%= link_to "My bookings", booked_consoles_path, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <% if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% else %>
+              <%= image_tag asset_url("placeholder.png"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Messages", "#", class: "dropdown-item" %>
+              <%= link_to "Tools", "#", class: "dropdown-item" %>
+              <div class="dropdown-divider"></div>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
