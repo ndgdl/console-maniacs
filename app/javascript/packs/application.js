@@ -35,6 +35,6 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
 
   // initFlatpickr();
+  toggleDateInputs();
 });
-toggleDateInputs();
 import "controllers"
