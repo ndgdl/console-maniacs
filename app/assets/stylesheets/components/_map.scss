@@ -5,7 +5,7 @@
   height: 100%;
   width: 100%;
   h5 {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 
@@ -13,4 +13,11 @@
   height: 100vh;
   position: sticky;
   top: 74px;
+}
+
+.map_button {
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  font-size: 20px;
 }

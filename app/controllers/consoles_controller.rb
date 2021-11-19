@@ -28,7 +28,7 @@ class ConsolesController < ApplicationController
           lat: owner[0][0],
           lng: owner[0][1],
           info_window: render_to_string(partial: "info_window", locals: { console: owner[1] }),
-          image_url: helpers.asset_url("marker")
+          image_url: helpers.asset_url("marker.png")
         }
       end
     end
@@ -69,7 +69,7 @@ class ConsolesController < ApplicationController
 
   def destroy
     @console.destroy
-    redirect_to owned_consoles_path(current_user)
+    redirect_to owned_consoles_path
   end
 
   private
